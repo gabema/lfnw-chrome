@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" ng-app="lfnwApp">
+<!--
+Special thanks to:
+http://outof.me/navigation-drawer-pattern-with-topcoat-css-library/
+
+-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>LinuxFest Northwest 2014</title>
+        <link rel="stylesheet" type="text/css" href="topcoat-0.8.0/css/topcoat-mobile-dark.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="angular-1.3.0-beta.3/angular.min.js"></script>
+        <script src="js/controllers.js"></script>
+    </head>
+    <body ng-controller="NavDrawerListCtrl">
+        <div class="topcoat-navigation-bar">
+            <div class="topcoat-navigation-bar__item left quarter">
+                <a id="slide-menu-button" class="topcoat-icon-button--quiet slide-menu-button">
+                    <span class="topcoat-icon topcoat-icon--menu-stack"></span>
+                </a>
+            </div>
+            <div class="topcoat-navigation-bar__item center half">
+                <h1 class="topcoat-navigation-bar__title">LinuxFest Northwest 2014</h1>
+            </div>
+            <div class="topcoat-navigation-bar__item right quarter">
+                <a class="topcoat-icon-button--quiet">
+                    <span class="topcoat-icon topcoat-icon--edit"></span>
+                </a>
+            </div>
+        </div>
+        <nav class="side-nav">
+            <div class="topcoat-list__container side-nav__list__container">
+                 <ul class="topcoat-list side-nav__list">
+                    <li class="{{styleForNavTarget(item, 'topcoat-list__item side-nav__list__item is-active','topcoat-list__item side-nav__list__item')}}" ng-repeat="item in navDrawerItems">
+                        <!-- <button ng-click="setNavTarget(item)">{{item.name}}</button> -->
+                        <!-- <a href="#" class="side-nav__button">{{item.name}}</a> -->
+                        <a class="side-nav__button" ng-click="setNavTarget(item)">{{item.name}}</a>
+                    </li>
+                 </ul>
+             </div>
+        </nav>
+        <div class="main-content">
+            <!-- <webview class="main-content-frame" ng-src="{{currentNavDrawerItemUrl}}"></webview> -->
+            <iframe class="main-content-frame" ng-src="{{currentNavDrawerItemUrl}}"> </iframe>
+        </div>
+        <script src="//use.edgefonts.net/source-sans-pro:n3,n4,n6;source-code-pro:n3.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
